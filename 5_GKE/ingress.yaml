@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ingress-1b
+spec:
+  rules:
+  - host: foo.bar.com # HTTPリクエストのHostヘッダー
+    http:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 8080
